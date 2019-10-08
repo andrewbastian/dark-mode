@@ -1,16 +1,6 @@
-import React from "react";
-import moment from "moment";
-import {
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip
-} from "recharts";
+import React from 'react';
 import { Card } from '@material-ui/core';
-
-const Chart = ({ sparklineData }) => {
+const CoinInfo = ({ sparklineData }) => {
   const formattedData = sparklineData
     .map((price, idx) => {
       if (idx % 6 === 0) {
@@ -29,15 +19,10 @@ const Chart = ({ sparklineData }) => {
 
   return (
 
-    <LineChart width={1100} height={300} data={formattedData}>
-      
-      <Line type="monotone" dataKey="value" stroke="#8884d8" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="date" interval={3} />
-      <YAxis />
-      <Tooltip />
+    <Card>
+      Coin CoinInfo
 
-    </LineChart>
+    </Card>
 
   );
 };

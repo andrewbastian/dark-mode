@@ -11,15 +11,16 @@ export function useCoinId(id, count) {
 
     // make a new api call any time `breed` or `count` changes
     axios
-      .get(`https://dog.ceo/api/breed/${breed}/images/random/${count}`)
+      .get(`https://www.coingecko.com/api/coins/{id}`)
       .then(result => {
-        setImages(result.data.message);
+        setCoins(result.data);
+        console.log(setCoins);
       })
       .catch(error => {
         console.log("error:", error);
       });
-  }, [breed, count]);
+  }, [id]);
 
   // we don't use `setImages` in App.js, but it's nice to return it just in case
-  return [images, setImages];
+  return [coins, setCoins];
 }
